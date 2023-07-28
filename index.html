@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins";
+      }
+
+      /* Bounce Animation */
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Pulse Animation */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Fade In Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Slide In from Left Animation */
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      /* Rotate Animation */
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Flip Animation */
+      @keyframes flip {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(360deg);
+        }
+      }
+
+      /* Scale Up and Down Animation */
+      @keyframes scaleUpDown {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* Color Change Animation */
+      @keyframes colorChange {
+        0% {
+          background-color: #2c003e;
+        }
+        50% {
+          background-color: #fe346e;
+        }
+        100% {
+          background-color: #2c003e;
+        }
+      }
+
+      /* Blinking Animation */
+      @keyframes blinking {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* Shake Animation */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Apply Bounce animation on an element */
+      .bounce-element {
+        animation: bounce 2s infinite;
+      }
+
+      /* Apply Pulse animation on an element */
+      .pulse-element {
+        animation: pulse 2s infinite;
+      }
+
+      /* Apply Fade In animation on an element */
+      .fade-in-element {
+        animation: fadeIn 1s;
+      }
+
+      /* Apply Slide In from Left animation on an element */
+      .slide-in-left-element {
+        animation: slideInLeft 1s;
+      }
+
+      /* Apply Rotate animation on an element */
+      .rotate-element {
+        animation: rotate 2s infinite;
+      }
+
+      /* Apply Flip animation on an element */
+      .flip-element {
+        animation: flip 2s infinite;
+      }
+
+      /* Apply Scale Up and Down animation on an element */
+      .scale-up-down-element {
+        animation: scaleUpDown 2s infinite;
+      }
+
+      /* Apply Color Change animation on an element */
+      .color-change-element {
+        animation: colorChange 3s infinite;
+      }
+
+      /* Apply Blinking animation on an element */
+      .blink-element {
+        animation: blinking 1s infinite;
+      }
+
+      /* Apply Shake animation on an element */
+      .shake-element {
+        animation: shake 1s infinite;
+      }
+
+      /* glitch  */
+      @keyframes glitch {
+        0% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        25% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        26% {
+          clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        50% {
+          clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        51% {
+          clip-path: polygon(0 0, 0 0, 0 100%, 100% 100%);
+        }
+        75% {
+          clip-path: polygon(0 0, 0 0, 0 100%, 100% 100%);
+        }
+        76% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+        }
+        100% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+        }
+      }
+      /* Apply glitch text animation on an element */
+      .glitch-text-element {
+        animation: glitch 1s infinite;
+      }
+      /* sliding background  */
+
+      @keyframes slidingBackground {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100% 0;
+        }
+      }
+      /* Apply sliding background animation on an element */
+      .sliding-background-element {
+        background: linear-gradient(90deg, #7506be, #fe346e, #7506be);
+        background-size: 200% 100%;
+        animation: slidingBackground 4s infinite;
+      }
+
+      /* for heart beat  */
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      /* Apply heartbeat animation on an element */
+      .heartbeat-element {
+        animation: heartbeat 2s infinite;
+      }
+
+      /* neon glow  */
+      @keyframes neonGlow {
+        0%,
+        100% {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+            0 0 40px #0ff, 0 0 50px #0ff, 0 0 75px #0ff;
+        }
+        50% {
+          text-shadow: none;
+        }
+      }
+      /* Apply neon glow animation on an element */
+      .neon-glow-element {
+        animation: neonGlow 1s infinite;
+      }
+
+      /* for typing  */
+      .typing-text-element {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .button {
+        border: none;
+        outline: none;
+        background: none;
+        padding: 10px 24px;
+        border-radius: 7px;
+
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+
+        color: skyblue;
+        background: black;
+
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      }
+
+      /* floating icons  */
+      @keyframes floatingSocialIcons {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      .floating-social-icons {
+        animation: floatingSocialIcons 3s infinite;
+      }
+
+      @keyframes confetti {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0);
+        }
+        50% {
+          transform: translateY(-150px) rotate(180deg);
+        }
+      }
+      /*particle background animation */
+      @keyframes particles {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 500% 0;
+        }
+      }
+
+      .particle-background {
+        background: linear-gradient(90deg, #7506be, #e9108e, #7506be);
+        background-size: 500% 100%;
+        animation: particles 10s linear infinite;
+      }
+      /* morphing buttons animation  */
+      @keyframes morphingButtons {
+        0% {
+          border-radius: 50%;
+        }
+        50% {
+          border-radius: 5px;
+        }
+        100% {
+          border-radius: 50%;
+        }
+      }
+
+      .morphing-buttons {
+        animation: morphingButtons 3s infinite;
+        background-color: #ff00e6;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      /*  3D flip card animation */
+      .flip-card {
+        perspective: 1000px;
+        margin: 20px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+
+      .flip-card-front {
+        background-color: #780fa1;
+      }
+
+      .flip-card-back {
+        background-color: #5f0730;
+        transform: rotateY(180deg);
+      }
+
+      /*  floating card  */
+
+      @keyframes floatingCard {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .floating-card {
+        animation: floatingCard 3s ease-in-out infinite;
+      }
+
+      /* rainbow text animation */
+      @keyframes rainbowText {
+        0% {
+          color: #ff0000;
+        }
+        16.67% {
+          color: #ff7f00;
+        }
+        33.33% {
+          color: #ffff00;
+        }
+        50% {
+          color: #00ff00;
+        }
+        66.67% {
+          color: #0000ff;
+        }
+        83.33% {
+          color: #4b0082;
+        }
+        100% {
+          color: #9400d3;
+        }
+      }
+
+      .rainbow-text {
+        animation: rainbowText 5s linear infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="flex-wrap: wrap; padding: 30px">
+      <!-- Bounce Animation -->
+      <button style="margin: 20px" class="button bounce-element">
+        <span>Bounce Animation</span>
+      </button>
+
+      <!-- Pulse Animation -->
+      <button style="margin: 20px" class="button pulse-element">
+        <span>Pulse Animation</span>
+      </button>
+
+      <!-- Fade In Animation -->
+      <button style="margin: 20px" class="button fade-in-element">
+        <span>Fade In Animation</span>
+      </button>
+
+      <!-- Slide In from Left Animation -->
+
+      <button style="margin: 20px" class="button slide-in-left-element">
+        <span>Slide In Left Animation</span>
+      </button>
+
+      <!--Rotate Element -->
+      <button style="margin: 20px" class="button rotate-element">
+        <span>Rotate Element</span>
+      </button>
+
+      <!--Flip Element -->
+      <button style="margin: 20px" class="button flip-element">
+        <span>Flip Element</span>
+      </button>
+
+      <!--Scale Up Down Element -->
+      <button style="margin: 20px" class="button scale-up-down-element">
+        <span>Scale Up Down Element</span>
+      </button>
+
+      <!--Color Change Element -->
+      <button style="margin: 20px" class="button color-change-element">
+        <span>Color Change Element</span>
+      </button>
+      <!--Blink Element -->
+      <button style="margin: 20px" class="button blink-element">
+        <span>Blink Element</span>
+      </button>
+      <!--Shake Element -->
+      <button style="margin: 20px" class="button shake-element">
+        <span>Shake Element</span>
+      </button>
+      <!-- Glitch element  -->
+      <button style="margin: 20px" class="button glitch-text-element">
+        <span>Glitch</span>
+      </button>
+
+      <!-- sliding background  -->
+
+      <button style="margin: 20px" class="button sliding-background-element">
+        <span>Sliding Background</span>
+      </button>
+
+      <!-- Heart Beat Animation -->
+
+      <button style="margin: 20px" class="button heartbeat-element">
+        <span>Heartbeat Animation</span>
+      </button>
+
+      <!--Neon Glow Animation -->
+
+      <button style="margin: 20px" class="button neon-glow-element">
+        <span>Neon Glow Animation</span>
+      </button>
+
+      <!--Floating Icons -->
+
+      <button style="margin: 20px" class="button icons floating-social-icons">
+        <span><i class="fab fa-facebook-messenger"></i> </span>
+      </button>
+      <button style="margin: 20px" class="button icons floating-social-icons">
+        <span><i class="fab fa-whatsapp"></i> </span>
+      </button>
+      <button style="margin: 20px" class="button icons floating-social-icons">
+        <span><i class="fab fa-twitter"></i> </span>
+      </button>
+      <button style="margin: 20px" class="button icons floating-social-icons">
+        <span><i class="fab fa-instagram"></i> </span>
+      </button>
+      <button style="margin: 20px" class="button icons floating-social-icons">
+        <span><i class="fab fa-linkedin"></i> </span>
+      </button>
+
+      <!--  particle-background -->
+
+      <button style="margin: 20px" class="button particle-background">
+        <span> Particle Background</span>
+      </button>
+
+      <!--  Morphing Buttons -->
+
+      <button style="margin: 20px" class="button morphing-buttons">
+        <span><i class="fab fa-linkedin"></i> </span>
+      </button>
+      <!--  Floating Card -->
+      <button style="margin: 20px" class="button floating-card">
+        <span>Floating Card </span>
+      </button>
+
+      <!--  Rainbow Text -->
+      <button style="margin: 20px" class="button rainbow-text">
+        <span>Rainbow Text </span>
+      </button>
+
+      <!-- Typing Animation -->
+
+      <span class="typing-text-element button"
+        >Hello, I am a typing animation!</span
+      >
+      <!-- flip card  -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <button style="margin: 20px" class="button p">
+              <span>Frontside </span>
+            </button>
+          </div>
+          <div class="flip-card-back">
+            <button style="margin: 20px" class="button p">
+              <span>Backside</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const textElement = document.querySelector(".typing-text-element");
+  const text = "Hello, I am a typing animation!";
+  let index = 0;
+
+  function typeText() {
+    textElement.textContent = text.slice(0, index);
+    index++;
+
+    if (index <= text.length) {
+      setTimeout(typeText, 100);
+    }
+  }
+
+  // Start typing animation when the page loads
+  window.addEventListener("DOMContentLoaded", typeText);
+</script>
